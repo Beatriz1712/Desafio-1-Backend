@@ -6,7 +6,6 @@ class ProductManager {
     //creando un id con static
     static id = 0
 
-
     //metodo devuleve el array con los productos creados
    // getProduct = () => this.products;
       getProduct (){
@@ -22,10 +21,16 @@ class ProductManager {
   }
 
 
-
-    //2do metodo add product agrega los productos,recibe las caracteristicas,las transforma en obj y las pushea
+    // metodo add product agrega los productos,recibe las caracteristicas,las transforma en obj y las pushea
     addProduct(title, decription, price, thumbnail, code, stock) {
-        // ProductManager.id++//y esto???
+         //validando que el CODE no se repita
+         for(let i = 0; i< this.products.length; i++){
+            if(this.products[i].code === code){
+                console.log(`El codigo ${code} esta repetido`);
+                //break;
+            }
+         }
+
         const product = {
             title,
             decription,
@@ -35,6 +40,7 @@ class ProductManager {
             stock
 
         }
+
         //si es primero ,como esta vacio,se le agrega el id = 1
         if (this.products.length === 0) {
             product.id = 1
@@ -53,10 +59,10 @@ producto.addProduct("producto prueba1", "Este es un producto prueba1",
  200, "Sin imagen", "abc123", 25);
 //agrego 2do producto con sus propiedades
 producto.addProduct("producto prueba2", "Este es un producto prueba2",
- 200, "Sin imagen", "abc124", 25);
+ 200, "Sin imagen", "abc123", 25);
 //traigo el producto agregado y lo leo
 console.log(producto.getProduct())
 
 
 //para buscar por Id
-producto.getProductById(1);
+producto.getProductById(2);
