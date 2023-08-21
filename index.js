@@ -27,9 +27,19 @@ class ProductManager {
          for(let i = 0; i< this.products.length; i++){
             if(this.products[i].code === code){
                 console.log(`El codigo ${code} esta repetido`);
-                //break;
+                break;
             }
          }
+
+         const newProduct = {
+            title, 
+            decription, 
+            price, 
+            thumbnail, 
+            code,
+            stock
+         }
+         console.log("Solo values",Object.values(newProduct))
 
         const product = {
             title,
@@ -37,8 +47,8 @@ class ProductManager {
             price,
             thumbnail,
             code,
-            stock
-
+            stock,
+            
         }
 
         //si es primero ,como esta vacio,se le agrega el id = 1
