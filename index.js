@@ -31,16 +31,7 @@ class ProductManager {
             }
          }
 
-         const newProduct = {
-            title, 
-            decription, 
-            price, 
-            thumbnail, 
-            code,
-            stock
-         }
-         console.log("Solo values",Object.values(newProduct))
-
+         
         const product = {
             title,
             decription,
@@ -51,15 +42,17 @@ class ProductManager {
             
         }
 
+    
         //si es primero ,como esta vacio,se le agrega el id = 1
-        if (this.products.length === 0) {
+        if (this.products === 0) {
             product.id = 1
         } else {
             product.id = this.products.length + 1
         }
         //pusheamos la prop id
         this.products.push(product)
-        //console.log(product.addProduct());
+        //console.log(product.addProduct);
+        
     }
 }
 const producto = new ProductManager()
